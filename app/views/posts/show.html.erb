@@ -1,0 +1,32 @@
+
+Title : <%= @post.title %> <br><br>
+
+Description : <br><p><%= @post.description %> </p><br><br>
+
+<% @comments.each do |f|%>
+<div class="comment">
+<div class="comment_header">
+Abhijit says <%= time_ago_in_words(f.created_at.time)%> ago 
+<div class="comment_reply">
+Reply : <%= f.replies.count %><br> <br>
+</div>
+</div>
+Comment : <p><%= f.comment %></p> <br> <br>
+
+<div id="reply_form_<%= f.id %>" class="reply_form" style="display:none;">
+<%= render :partial => 'replies/form', :locals => { :s => f }%>
+</div>
+
+<div id="reply_<%= f.id %>" class="reply">
+<a onclick="reply_form('#reply_form_<%= f.id %>', '#reply_<%= f.id %>');"> Reply </a>
+</div>
+
+</div> <br><br>
+<% end %>
+
+<div class="apple_pagination">
+<%= will_paginate @comments %>
+</div>
+<br><br>
+<%= render :partial => "/comments/form"%>
+

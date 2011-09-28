@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <title>abgo</title>
+    <meta property="fb:app_id" content="<%= Facebook.config[:client_id] %>">
+    <!--[if IE]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag 'style','base', 'layout', 'gritter', 'jquery-ui-1.8.16.custom', 'pagination', 'slideshow', 'validationEngine.jquery'%>
+    <%= javascript_include_tag 'jquery-1.4.4.min', 'jquery-ui-1.8.7.min', 'ajax','application', 'rails', 'jquery.gritter', 'juggernaut', 'juggernaut/swfobject', 'shadowbox', 'jquery.validationEngine-en', 'jquery.validationEngine'%>
+	
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <h1><%= link_to "Devise App", root_path %></h1>
+    <div class="container">
+	  <div class="left_container">
+      <div class="main">
+		<% if current_user.present? %>
+		<ul class="hmenu">
+		  <%= render 'devise/menu/registration_items' %>
+		  <%= render 'devise/menu/login_items' %>
+		</ul>
+		<% else %>
+		  <ul class="hmenu1">
+		  <%= render 'devise/menu/registration_items' %>
+		  <%= render 'devise/menu/login_items' %>
+		</ul>
+		<% end %>
+        <%= yield %>
+      </div>
+      <div class="left_sidebar">	
+			<%= render :partial => 'devise/menu/left_menu' %>		
+      </div>
+	  </div>
+      <aside class="sidebar">
+        <%= render :partial => 'layouts/sidebar' %>
+      </aside>
+	  
+    </div>
+    <%= render 'layouts/footer' %>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      FB.init({
+        appId: "<%= Facebook.config[:client_id] %>",
+        cookie: true,
+        xfbml: true,
+        oauth: true
+      });
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        <% if flash[:error] %>
+          $.gritter.add({
+            title: "Test",
+            text : "There might be an error, please check the log.",
+            image: "/images/app.jpg",
+            time : 5000
+          });
+        <% elsif flash[:notice] %>
+          $.gritter.add({
+            title: "Welcome",
+            text : "Welcome to the awesome adverts site.",
+            image: "/images/app.jpg",
+            time : 3000,
+			fade: true, // optional
+			speed: 'slow' // optional
+          });
+        <% end %>
+      });
+    </script>
+    
+  </body>
+</html>

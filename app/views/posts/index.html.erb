@@ -1,0 +1,45 @@
+
+<script type='text/javascript' src='javascripts/jquery.tag.min.js'></script>
+<link media="screen" rel="stylesheet" href="stylesheets/jquery.tag.css" type="text/css" />
+<link media="screen" rel="stylesheet" href="stylesheets/jquery-ui.custom.css" type="text/css" />
+
+<img src="/images/app.jpg" id="img" />
+	
+<script>
+		$(document).ready(function(){
+			
+			$("#img").tag({
+				save: function(width,height,top_pos,left,label,the_tag){
+					$.ajax({
+							  type: 'POST',
+							  url: "/albums/add_tag?label=" + label + "&width=" + width + "&height=" + height + "&top=" + top_pos + "&left=" + left ,
+							  timeout: 2000,
+							  dataType: "json",
+							  error: function(XMLHttpRequest, errorTextStatus, error){
+							  			alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+							           },
+							  success: function(id){
+												the_tag.setId(id);
+											}
+						});
+				},
+				remove: function(id){
+					$.ajax({
+							  type: 'GET',
+							  url: "/albums/remove_tag?id=" + id ,
+							  timeout: 2000,
+							  dataType: "json",
+							  
+						});
+				}
+			});
+			
+			$.getJSON("/albums/show_tag",{},function(tags){
+				$.each(tags, function(key,tag){ alert(tag.jtag.width);
+					$("#img").addTag(tag.jtag.width,tag.jtag.height,tag.jtag.top,tag.jtag.left,tag.jtag.label,tag.jtag.id);
+				});
+			});
+			
+		});
+	</script>
+

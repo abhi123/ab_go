@@ -1,0 +1,26 @@
+<div class="table">
+<ul class="from">
+<li class="title">Sent to</li>
+<% @messages.each do |message|%>
+<li class="even"><%= sender(message.user_id).first_name %></li>
+<% end %>
+</ul>
+<ul class="subject">
+<li class="title">Subject</li>
+<% @messages.each do |message|%>
+<li class="even"><%= link_to message.subject, show_sent_mail_messages_path(:id => message.id, :return_url => request.request_uri) %></li>
+<% end %>
+</ul>
+<ul class="send_at">
+<li class="title">Send at</li>
+<% @messages.each do |message|%>
+<li class="even"><%= message.created_at.to_date %></li>
+<% end %>
+</ul>
+<ul class="status">
+<li class="title">Status</li>
+<% @messages.each do |message|%>
+<li class="even"><% if message.status == 0%> Unread <% else %> Read <% end %></li>
+<% end %>
+</ul>
+</div>

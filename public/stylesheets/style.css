@@ -1,0 +1,266 @@
+ul.hmenu {
+  background: none repeat scroll 0 0 #F1F1E1;
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+  width: 630px;
+  text-align: left;
+}
+
+ul.hmenu1 {
+  background: none repeat scroll 0 0 #F1F1E1;
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+  width: 630px;
+  text-align: center;
+}
+
+ul.hmenu li {
+  display: inline;  
+}
+
+.comment {
+
+  background: none repeat scroll 0 0 #F1F1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  text-align: left;
+  width: 600px;
+
+}
+
+.comment .comment_header {
+  background: none repeat scroll 0 0 #D1D1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  text-align: left;
+  width: 550px;
+  height: 20px;
+}
+
+.comment .comment_header .comment_reply {
+  background: none repeat scroll 0 0 #D1D1E1;
+  cursor: default;
+  text-align: left;
+  float: right;
+  width: 30%;
+  height: 20px
+}
+.show_album {
+  background: none repeat scroll 0 0 #F1F1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  height: auto;
+}
+
+.flash_notice {
+  background: none repeat scroll 0 0 #F1F1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  text-align: center;
+}
+
+.flash_error {
+  background: none repeat scroll 0 0 #F76541;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  text-align: center;
+}
+
+.sign_in {
+  background: none repeat scroll 0 0 #F1F1D1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  text-align: center;
+}
+
+.register {
+  background: none repeat scroll 0 0 #F1F1D1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  text-align: left;
+}
+
+.photo_slide_show {
+  background: none repeat scroll 0 0 #D1D1D1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  text-align: left;
+}
+
+.shared_links {
+  background: none repeat scroll 0 0 #B1F1F1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 400px;
+  text-align: left;
+}
+
+.upload_photo_form {
+  background: none repeat scroll 0 0 #F1F1D1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+}
+
+.search_user {
+  background: none repeat scroll 0 0 #F1F1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+}
+
+.search_user .user_listing {
+  background: none repeat scroll 0 0 #F1E1E1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 550px;
+  height: 100px;
+}
+
+.search_user .user_listing .user_listing_photo {
+  background: none repeat scroll 0 0 #F1E1E1;
+  cursor: default;
+  width: 100px;
+  height: 100px;
+  float: left;
+  text-align: left;
+}
+
+.search_user .user_listing .user_listing_text {
+  background: none repeat scroll 0 0 #F1E1E1;
+  cursor: default;
+  width: 450px;
+  height: 100px;
+  float: right;
+  text-align: center;
+}
+
+.profile_user_listing {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+  width: 600px;
+  height: 100px;
+}
+
+.profile_user_listing .user_listing_photo {
+  background: none repeat scroll 0 0 #FFFFFF;
+  cursor: default;
+  width: 100px;
+  height: 100px;
+  float: left;
+  text-align: left;
+}
+
+.profile_user_listing .user_listing_text {
+  background: none repeat scroll 0 0 #FFFFFF;
+  cursor: default;
+  width: 450px;
+  height: 100px;
+  float: right;
+  text-align: center;
+}
+ 
+.table
+{
+background:#333;
+
+}
+.table ul.from
+{
+float:left;
+margin:0;
+padding:0;
+border:1px solid #C9C9C9;
+width: 100px;
+text-align: center;
+}
+
+.table ul.subject
+{
+float:left;
+margin:0;
+padding:0;
+border:1px solid #C9C9C9;
+width: 350px;
+text-align: center;
+}
+
+.table ul.send_at
+{
+float:left;
+margin:0;
+padding:0;
+border:1px solid #C9C9C9;
+width: 100px;
+text-align: center;
+}
+
+.table ul.status
+{
+float:left;
+margin:0;
+padding:0;
+border:1px solid #C9C9C9;
+width: 80px;
+text-align: center;
+}
+
+.table ul li
+{
+list-style:none;
+padding:5px 10px;
+}
+.table ul li.title
+{
+font-weight:bold;
+background:#333;
+color:#fff;
+}
+
+.table ul.from li.even
+{
+background:#fff;
+border:1px solid #333;
+}
+
+
+.table ul.subject li.even
+{
+background:#fff;
+border:1px solid #333;
+}
+
+
+.table ul.send_at li.even
+{
+background:#fff;
+border:1px solid #333;
+}
+
+.table ul.status li.even
+{
+background:#fff;
+border:1px solid #333;
+}

@@ -1,0 +1,45 @@
+<script type="text/javascript">
+        
+        jQuery(document).ready(function(){
+              // binds form submission and fields to the validation engine
+		      jQuery("#formID3").validationEngine('attach', {promptPosition : "bottomRight"});
+            });
+</script>
+<% if flash[:notice].present? %>
+		<div class="flash_notice">
+		<%= flash[:notice] %>
+		</div>
+<% end %>
+<% if flash[:alert].present? %>
+		<div class="flash_error">
+		<%= flash[:alert] %>
+		</div>
+<% end %>
+<% if flash[:error].present? %>
+		<div class="flash_error">
+		<%= flash[:error] %>
+		</div>
+<% end %>
+
+<br> <br>
+
+<div class="sign_in">
+<%= form_for(:user, :as => :user,  :url => session_path(:user), :html => {:id => "formID3"}) do |f| %> 
+<h5> Sign in with your </h5> 
+<h3> AB GO Account</h3>
+  <p><%= f.label :username %> :
+  <%= f.email_field :email, :class => "validate[required,custom[email]] text-input" %> <br>
+	ex: abc@example.com </p>
+
+  <p><%= f.label :password %> :
+  <%= f.password_field :password, :class => "validate[required] text-input" %></p>
+
+  
+    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+  
+
+  <p><%= f.submit "Sign in" %></p>
+<% end %>
+	<h4> New to AB GO? Its free an easy.</h4>
+	<%= button_to('Create an account', new_user_registration_path, {:method => "get"})  %>
+</div>

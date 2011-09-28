@@ -1,0 +1,5 @@
+From : <%= sender(@message.sender_id).first_name %>  <br><br>
+ Subject : <%= @message.subject %>   <br><br>
+ Body : <%= @message.body %>   <br><br>
+
+ <%= link_to " Back To Inbox", @return_url %>

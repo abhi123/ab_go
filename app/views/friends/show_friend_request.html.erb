@@ -1,0 +1,24 @@
+
+<div class="search_user">
+<% @friend_request.each do |user|%>
+	<% @user = find_user(user.requester_id)%>
+	 <div class="user_listing">
+		<div class="user_listing_photo">
+      		<%= image_tag @user.avatar.url(:thumb)%> 
+		</div>
+		<div class="user_listing_text">
+		<%= @user.first_name %> <%= @user.last_name %> <br> <br>
+		<%= button_to("Accept", accept_friend_request_friends_path(:user_id => current_user.id, :friend_id => @user.id, :return_to => request.request_uri)) %> 
+			||	
+		<%= button_to("Reject", reject_friend_request_friends_path(:user_id => current_user.id, :requester_id => @user.id, :return_to => request.request_uri))%>
+		
+		</div>
+	 </div>
+	  <br><br>
+<% end %>
+</div>
+
+<br><br><br>
+<div class="apple_pagination">
+<%= will_paginate @friend_request %>
+</div>

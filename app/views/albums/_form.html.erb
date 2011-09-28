@@ -1,0 +1,23 @@
+<div class="upload_photo_form">
+<h3> Upload Photos </h3> <br><br>
+<%= form_for(@album, :html => { :multipart => true }) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.file_field :album %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= hidden_field_tag :return_to, request.request_uri %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.submit "Upload Photo" %>
+  
+<% end %>
+</div>

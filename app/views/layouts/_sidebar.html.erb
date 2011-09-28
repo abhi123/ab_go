@@ -1,0 +1,18 @@
+<% if current_user.present?%>
+<% if (current_user.facebook_confirmation != "1") %>
+<%= button_to "Facebook Connect", new_facebook_path, :method => :get %><br><br>
+<% end %>
+<fb:like-box profile_id="162044603873112" width="270" connections="6" />
+<% else %>
+	<div class="banner2">
+		<%= image_tag "johnny-walker.jpg", :size => "250x200"%>
+	</div><br><br>
+
+	<div class="banner2">
+		<%= image_tag "Adidas_logo.jpg", :size => "250x200"%>
+	</div><br><br>
+
+	<div class="banner2">
+		<%= image_tag "levis-logo.jpg", :size => "250x200"%>
+	</div>
+<% end %>

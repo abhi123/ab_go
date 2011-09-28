@@ -1,0 +1,21 @@
+<div class="search_user">
+<h2> Friends </h2> <br>
+<% @friends.each do |friend|%>
+	<% @user = find_user(friend.friend_id)%>
+	 <div class="user_listing">
+		<div class="user_listing_photo">
+      		<%= link_to(image_tag(@user.avatar.url(:thumb)), user_profile_profile_index_path(:id => @user.id) )%> 
+		</div>
+		<div class="user_listing_text">
+		<h4><%= @user.first_name %> <%= @user.last_name %></h4> <br>
+		<h3><%= @user.country %>, <%= @user.city %> </h5>
+		</div>
+	 </div>
+	  <br><br>
+<% end %>
+</div>
+
+<br><br><br>
+<div class="apple_pagination">
+<%= will_paginate @friends %>
+</div>

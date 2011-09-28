@@ -1,0 +1,25 @@
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ Currently you can send messages to your friends only. <br><br>
+<%= f.hidden_field :sender_id, :value => current_user.id %>
+<%= f.hidden_field :status, :value => 0 %>
+ To : <%= f.select "user_id", options_from_collection_for_select(@receiver, "id", "first_name"), :include_blank => true%> <br><br>
+
+ Subject : <%= f.text_field :subject %> <br><br>
+
+ Body : <br><%= f.text_area :body %> <br><br>
+  <div class="actions">
+    <%= f.submit "Send" %>
+  </div>
+<% end %>

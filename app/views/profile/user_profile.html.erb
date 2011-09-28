@@ -1,0 +1,56 @@
+<script type="text/javascript" src="/javascripts/galleria/galleria-1.2.5.min.js"></script>
+
+<div class="profile_user_listing">
+		<div class="user_listing_photo">
+      		<%= image_tag @user.avatar.url(:thumb) %> 
+		</div>
+		<div class="user_listing_text">
+		<h4><%= @user.first_name %> <%= @user.last_name %></h4> <br>
+		<h3><%= @user.country %>, <%= @user.city %></h3> 
+		<% if(send_friend_request?(current_user.id, @user.id) == true )  %>
+		<br>
+		<%= button_to("Send Friend Request", send_friend_request_friends_path(:id => @user.id, :requester_id => current_user.id, :return_to => request.request_uri) )%>
+		<% end %>
+		</div>
+</div>
+<br><br>
+
+<div class="search_user">
+<h2> Friends </h2> <br>
+<% @friends.each do |friend|%>
+	<% @u = find_user(friend.friend_id)%>
+	 <div class="user_listing">
+		<div class="user_listing_photo">
+      		<%= link_to(image_tag(@u.avatar.url(:thumb)), user_profile_profile_index_path(:id => @u.id) )%> 
+		</div>
+		<div class="user_listing_text">
+		<h4><%= link_to(@u.first_name + " "+ @u.last_name, user_profile_profile_index_path(:id => @u.id) )%></h4> <br>
+		<h3><%= @u.country %>, <%= @u.city %> </h5>
+		</div>
+	 </div>
+	  <br><br>
+<% end %>
+</div>
+
+<br><br><br>
+<div class="apple_pagination">
+<%= will_paginate @friends %>
+</div>
+
+<br> <br>
+<div class="show_album">
+<h2> Album </h2> <br>	
+<div id="gallery">
+            <% @albums.each do |photo|%>
+				<%= image_tag photo.album.url(:medium)%>
+			<% end %>
+</div>
+        <script>
+            Galleria.loadTheme('/javascripts/galleria/themes/classic/galleria.classic.min.js');
+            $("#gallery").galleria({
+                width: 570,
+                height: 360
+            });
+        </script>
+
+</div>

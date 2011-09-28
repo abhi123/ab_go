@@ -1,0 +1,61 @@
+<link rel='stylesheet' id='shadowbox-css-css'  href='/javascripts/shadowbox-js/shadowbox/shadowbox.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='/javascripts/shadowbox-js/css/extras.css' type='text/css' media='screen' />
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		autoDimensions: false,
+		animateFade: true,
+		animate: true,
+		animSequence: "sync",
+		autoplayMovies: true,
+		continuous: false,
+		counterLimit: 10,
+		counterType: "default",
+		displayCounter: true,
+		displayNav: true,
+		enableKeys: true,
+		flashBgColor: "#000000",
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		initialHeight: 160,
+		initialWidth: 320,
+		modal: false,
+		overlayColor: "#000",
+		showMovieControls: true,
+		showOverlay: true,
+		skipSetup: false,
+		slideshowDelay: 0,
+		useSizzle: false,
+		viewportPadding: 20
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+
+<% if flash[:notice].present? %>
+<div class="flash_notice">
+	<%= flash[:notice] %>
+</div>
+<% end %>
+<br> <br>
+
+<div id="create_album">
+	<%= render :partial => "albums/form"%>
+</div>
+<br><br>
+<div id="albums" class="show_album">
+<h3> My Album </h3> <br>
+<% @my_album.each do |my_album| %>
+	 <a href="http://localhost/devise_app/public<%= my_album.album.url(:medium) %>" rel="shadowbox[sbpost-1];player=img;"><%= image_tag my_album.album.url(:thumb) %> </a>
+	<%= link_to(image_tag("close.png", :alt => "Delete"), my_album, :confirm => 'Are you sure?', :method => :delete) %>
+	<a href="/albums/<%=my_album.id %>/tag_image" rel="shadowbox[sbpost-1];player=iframe;"> Tag Image </a>
+<% end %>
+</div>
+<br><br>
+<div class="apple_pagination">
+<%= will_paginate @my_album %>
+</div>

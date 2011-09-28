@@ -1,0 +1,38 @@
+<div class= "upload_photo_form">
+	<%= render :partial => "search/search_people"%>
+</div>
+<br><br><br>
+
+<div class="search_user">
+<h3> Search Result </h3> <br>
+<% if @user.present? && @user != "" %>
+ <h4> Search showing <%= @user.count %> users out of <%= @user.total_entries %></h4> <br> <br>
+
+	<% @user.each do |user|%>
+	 <div class="user_listing">
+		<div class="user_listing_photo">
+      		<%= link_to(image_tag(user.avatar.url(:thumb)), user_profile_profile_index_path(:id => user.id) )%>
+		</div>
+		<div class="user_listing_text">
+		<%= link_to(user.first_name + " " + user.last_name, user_profile_profile_index_path(:id => user.id) )%> <br><br>
+		<h3><%= user.country %>, <%= user.city %></h3> <br>
+		<% if(already_sent?(current_user.id, user.id) == true )  %>
+		<%= button_to("Cancel Friend Request", cancel_friend_request_friends_path(:id => user.id, :requester_id => current_user.id, :return_to => request.request_uri) ) %>
+		<% end %>
+		
+		<% if(send_friend_request?(current_user.id, user.id) == true ) %>
+		<%= button_to("Send Friend Request", send_friend_request_friends_path(:id => user.id, :requester_id => current_user.id, :return_to => request.request_uri) )%>
+		<% end %>
+		</div>
+	 </div>
+	  <br><br>
+	<% end %>
+	
+<br><br><br>
+<div class="apple_pagination1">
+<%= will_paginate @user %>
+</div>
+<% else %>
+		 <h4> No such record found.</h4> <br> <br>
+<% end %>
+</div>

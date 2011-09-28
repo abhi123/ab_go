@@ -1,0 +1,24 @@
+<html>
+    <head>
+	<script src="http://localhost:8080/application.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+      	<input name="commit" type="button" value="Connect To Chat" OnClick="connect_chat();" />
+		<%= text_field_tag("chat_input")%>
+        <input name="commit" type="button" value="Add" OnClick="publish_data('<%= current_user.first_name%>');" />
+		
+		<div id="chats">
+		</div>
+     </form> 
+
+     <!-- <script>
+      $(document).ready(function(){
+        $('form').submit(function(){
+          $.get('/chats/send_data', { chat_input: $('#chats').val() } )
+          return false;
+        })
+      })
+      </script> -->
+      <ul id="chat_data" style="list-style:none"></ul>
+    </body>
+  </html>

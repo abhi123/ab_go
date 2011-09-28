@@ -1,0 +1,10 @@
+<section class="timeline">
+<% for i in 0..52 do %>
+<article class="clearfix">
+      <div class="avatar">
+        <fb:profile-pic uid="<%= @friends[i].identifier %>" size="square"></fb:profile-pic>
+		<strong><fb:name uid="<%= @friends[i].identifier %>"></fb:name></strong>
+      </div>
+</article>
+<% end %>
+</section>

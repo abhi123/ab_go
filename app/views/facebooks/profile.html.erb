@@ -1,0 +1,94 @@
+
+<h1 align=center> Facebook Wall </h1>
+<div class="avatar">
+  <fb:profile-pic uid="<%= @user.try(:identifier) %>" size="normal" facebook-logo="true"></fb:profile-pic>
+</div>
+
+<section class="profile">
+  <h2>User Profile</h2>
+  <dl>
+    <dt>Name :</dt>
+    <dd><%= @user.name %></dd>
+    <dt>First Name :</dt>
+    <dd><%= @user.first_name %></dd>
+    <dt>Middle Name :</dt>
+    <dd><%= @user.middle_name %></dd>
+    <dt>Last Name :</dt>
+    <dd><%= @user.last_name %></dd>
+    <dt>Gender :</dt>
+    <dd><%= @user.gender %></dd>
+    <dt>Link :</dt>
+    <dd><%= link_to @user.link, @user.link %></dd>
+    <dt>Email :</dt>
+    <dd><%= @user.email %></dd>
+    <dt>About :</dt>
+    <dd><%= @user.about %></dd>
+    <dt>Birthday :</dt>
+    <dd><%= @user.birthday %></dd>
+    <dt>Work :</dt>
+    <% @user.work.each do |work| %>
+      <dd>
+        <article>
+          <header>
+            <h3><%= work.employer.name %></h3>
+            <p><%= work.start_date %> - <%= work.end_date || 'Current' %></p>
+          </header>
+          <p><%= work.position.try(:name) %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Education :</dt>
+    <% @user.education.each do |education| %>
+      <dd>
+        <article>
+          <h3><%= education.school.name %></h3>
+          <p><%= education.type %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Website :</dt>
+    <dd><%= simple_format auto_link @user.website %></dd>
+    <dt>Hometown :</dt>
+    <dd><%= @user.hometown.try(:name) %></dd>
+    <dt>Location :</dt>
+    <dd><%= @user.location.try(:name) %></dd>
+    <dt>Bio :</dt>
+    <dd><%= @user.bio %></dd>
+    <dt>Quotes :</dt>
+    <dd><%= @user.quotes %></dd>
+    <dt>Interested in :</dt>
+    <dd><%= @user.interested_in.join(', ') %></dd>
+    <dt>Relationship Status :</dt>
+    <dd><%= @user.relationship_status %></dd>
+    <dt>Religion :</dt>
+    <dd><%= @user.religion %></dd>
+    <dt>Political :</dt>
+    <dd><%= @user.political %></dd>
+    <dt>Verified :</dt>
+    <dd><%= @user.verified %></dd>
+    <dt>Significant Other :</dt>
+    <dd><%= @user.significant_other.try(:name) %></dd>
+    <dt>Timezone :</dt>
+    <dd><%= @user.timezone %></dd>
+    <dt>Locale :</dt>
+    <dd><%= @user.locale %></dd>
+    <dt>Languages :</dt>
+    <dd><%= @user.languages.collect(&:name).join(', ') %></dd>
+    <dt>Sports :</dt>
+    <dd><%= @user.sports.collect(&:name).join(', ') %></dd>
+    <dt>Favorite Teams :</dt>
+    <dd><%= @user.favorite_teams.collect(&:name).join(', ') %></dd>
+    <dt>Inspirational People :</dt>
+    <dd><%= @user.inspirational_people.collect(&:name).join(', ') %></dd>
+    <dt>Update Time :</dt>
+    <dd><%= @user.updated_time %></dd>
+    <dt>Third Party ID :</dt>
+    <dd><%= @user.third_party_id %></dd>
+    <dt>Pending.. (temporary disabled by facebook)</dt>
+    <% [:address, :mobile_phone].each do |attribute| %>
+      <dd><%= attribute %></dd>
+    <% end %>
+  </dl>
+</section>
+<%= debug @album %>
+

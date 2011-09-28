@@ -1,0 +1,103 @@
+/*-----------------]: layout :[---------------------*/
+
+body > h1 {
+  text-align: center;
+  padding: 42px;
+  height: 35px;
+  background: url('/images/header_back.png') repeat-x top left;
+}
+body > h1 a,
+body > h1 a:hover {
+  color: #FFF;
+}
+body > .container {
+  width: 99%;
+  margin-top: 60px;  
+  margin-right: 0px;  
+  margin-bottom: 60px;  
+  margin-left: 0px;
+}
+
+body > .container .left_container {
+  float: left;
+  width: 75%;
+  min-height: 400px;
+}
+
+body > .container .sidebar {
+  float: right;
+  text-align: center;
+  width: 22%;
+  height: 700px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+}
+
+body > .container .sidebar .banner2{
+  float: left;
+  text-align: left;
+  width: 90%;
+  height: 210px;
+  background: none repeat scroll 0 0 #E1F1F1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 0.4em;
+}
+
+body > .container .left_container .main {
+  float: right;
+  width: 70%;
+  min-height: 400px;
+}
+
+body > .container .left_container .left_sidebar {
+  float: left;
+  text-align: left;
+  width: 25%;
+  height: 700px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 1em;
+}
+
+body > .container .left_container .left_sidebar .banner1{
+  float: left;
+  text-align: left;
+  width: 90%;
+  height: 210px;
+  background: none repeat scroll 0 0 #E1F1F1;
+  border: 1px solid #E5E5E5;
+  cursor: default;
+  padding: 0.4em;
+}
+
+body > .container img {
+  border: 1px solid #ddd;
+}
+body > .container .sidebar p,
+body > .container .sidebar dl {
+  text-align: left;
+  padding-left: 50px;
+}
+body > footer {
+  clear: both;
+  color: #C1B49A;
+  text-align: center;
+  height: 17px;
+  padding: 85px 0 20px;
+  background: #333 url("/images/footer_back.png") repeat-x;
+}
+body > footer,
+body > footer small {
+  font-size: 12px;
+}
+body > footer a {
+  color: #AEDEE4;
+}
+body > footer li {
+  display: inline-block;
+  margin: 0 10px;
+}

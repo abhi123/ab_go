@@ -1,0 +1,42 @@
+<% if current_user.present? %>
+<div class="banner1">
+		<h3 align="center"> Profile </h3>
+<% @friend_requests = friend_requests_count(current_user)%>
+<% @friends = friends_count(current_user)%>
+<%= image_tag current_user.avatar.url(:thumb) %> 
+<h4><%= current_user.first_name %></h4> <br>
+Friend Requests : <% if @friend_requests.count == 0%> 
+						<%= link_to "None", "#"%> 
+				<% else %>
+						<%= link_to @friend_requests.count, show_friend_request_friends_path(:user_id => current_user.id) %>
+				<% end %>
+<br> <br>
+
+Friends : <% if @friends.count != 0 %> <%= link_to(@friends.count, friend_friends_path)%> <% else %> No friends yet. <%  end %>
+<br> <br>
+
+Find Friends : <%= link_to "search f", search_user_search_index_path %> 
+</div><br><br>
+
+<div class="banner1">
+		<h3 align="center"> Messages </h3> <br>
+		<% @message = unread_msg(current_user.id) %>
+<h4><%= button_to "Create Message", new_message_path, :method => "get" %></h4>  <br>
+<h4><%= link_to "Inbox", messages_path %> : <% if @message.count != 0 %>( <%= @message.count %> ) <% else %> ( 0 ) <% end %></h4>  <br>
+<h4><%= link_to "Sent Mail", sent_mail_messages_path %> </h4> <br>
+
+</div><br><br>
+
+<% else %>
+	<div class="banner1">
+		<%= image_tag "killer.jpg", :size => "200x200"%>
+	</div><br><br>
+
+	<div class="banner1">
+		<%= image_tag "gucci.gif", :size => "200x200"%>
+	</div><br><br>
+
+	<div class="banner1">
+		<%= image_tag "armani.jpg", :size => "200x200"%>
+	</div>
+<% end %>

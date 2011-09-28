@@ -1,0 +1,21 @@
+<%= form_for(@reply) do |f| %>
+  <% if @reply.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
+
+      <ul>
+      <% @reply.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h4> Leave a Reply </h4> <br><br>
+ Name : <%= text_field_tag :name %> <br><br>
+ Reply : <br> <p><%= f.text_area :reply, :rows => 8, :cols => 55, :maxlength => 200  %></p>
+        <%= hidden_field_tag :return_to, request.request_uri %>
+		<%= f.hidden_field :comment_id, :value => s.id %>
+  <div class="actions">
+    <%= f.submit %> || <a onclick="cancel_reply();"> Cancel </a>
+  </div>
+<% end %>
