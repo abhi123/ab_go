@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-require 'fb_graph'
 gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
