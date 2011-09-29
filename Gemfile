@@ -11,7 +11,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'omniauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'fb_graph'
-gem 'rmagick', '1.15.13'
+gem 'rmagick'
 gem 'paperclip', '2.3.15'
 gem "less", :git => "git://github.com/maccman/less.git"
 gem "rack-less"
