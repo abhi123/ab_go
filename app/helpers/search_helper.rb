@@ -1,6 +1,6 @@
 module SearchHelper
   def already_sent?(requester_id, user_id)
-    @friend_request = FriendRequest.find(:first, :conditions => ["user_id =? && requester_id =?", user_id, requester_id])
+    @friend_request = FriendRequest.find(:first, :conditions => ["user_id =? AND requester_id =?", user_id, requester_id])
     @friend_request != nil 
   end
   
