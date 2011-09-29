@@ -22,7 +22,7 @@ DeviseApp::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'blazing-robot-2116.heroku.com' }
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address        => 'smtp.gmail.com',
